@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Quick Spell Randomizer</title>
     <!-- CSS only -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
@@ -21,8 +17,8 @@
     <table class="table table-striped" id="spellTable">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Types</th>
+          <th>Spell Name</th>
+          <th>Spell Types</th>
           <th>Slots</th>
           <th>Link</th>
         </tr>
@@ -1078,21 +1074,13 @@
           }
         }
 
-        spellArr.forEach((item) => console.log(item.spellSlots));
         const table = document.getElementById("spellTable");
-        console.log();
-        if (
-          table.getElementsByTagName("thead")[0].getElementsByTagName("tr").length > 1
-        ) {
-          let thead = table.getElementsByTagName("thead")[0];
-
-          for (let i = 0; i + 1 <= thead.getElementsByTagName("tr").length; i++) {
-            thead.deleteRow(-1);
-          }
+        console.log(table.rows);
+        while (table.rows.length > 1) {
+          table.deleteRow(1);
         }
 
         for (let i = 0; i < spellArr.length; i++) {
-          const table = document.getElementById("spellTable");
           const row = table.insertRow();
           const cell1 = row.insertCell(0);
           const cell2 = row.insertCell(1);
