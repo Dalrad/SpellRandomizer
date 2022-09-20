@@ -9,22 +9,59 @@
       crossorigin="anonymous"
     />
   </head>
-  <body style="margin: 1em; padding: 1em; border: 1px solid black">
-    <label for="spellSlots">Available Spell Slots</label>
-    <input type="number" id="spellSlots" name="spellSlots" value="2" />
-    <button onclick="spellFunction()">Randomize spells</button>
+  <body style="background-color: #f1f1f1">
+    <div
+      style="
+        margin: 1em;
+        padding: 1em;
+        border: 1px solid black;
+        background-color: #ffffff;
+      "
+    >
+      <div class="row g-3">
+        <div class="col-auto pt-2">
+          <label for="spellSlots">Available Spell Slots</label>
+        </div>
+        <div class="col-auto">
+          <input id="spellSlots" type="number" class="form-control" value="2" />
+        </div>
+        <div class="col-auto">
+          <button onclick="spellFunction()" class="btn btn-primary">
+            Randomize spells
+          </button>
+        </div>
+      </div>
 
-    <table class="table table-striped" id="spellTable">
-      <thead>
-        <tr>
-          <th>Spell Name</th>
-          <th>Spell Types</th>
-          <th>Slots</th>
-          <th>Link</th>
-        </tr>
-      </thead>
-    </table>
-
+      <div class="form-check pt-2">
+        <label class="form-check-label" for="sorceryCheckbox">Sorceries</label>
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          checked
+          id="sorceryCheckbox"
+        />
+      </div>
+      <div class="form-check pt-2">
+        <label class="form-check-label" for="incantationCheckbox">Incantations</label>
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="incantationCheckbox"
+        />
+      </div>
+      <table class="table table-striped" id="spellTable">
+        <thead>
+          <tr>
+            <th>Spell Name</th>
+            <th>Spell Types</th>
+            <th>Slots</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
     <script>
       function spellFunction() {
         const arr = [
@@ -33,48 +70,56 @@
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Bloodboon",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Burn O Flame!",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Burn+O+Flame!",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Carian Retaliation",
             spellType: "Debuff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Carian+Retaliation",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Comet Azur",
             spellType: "Magic",
             spellSlots: 3,
             spellLink: "https://eldenring.wiki.fextralife.com/Comet+Azur",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Death Lightning",
             spellType: "Blight",
             spellSlots: 2,
             spellLink: "https://eldenring.wiki.fextralife.com/Death+Lightning",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Elden Stars",
             spellType: "Magic",
             spellSlots: 2,
             spellLink: "https://eldenring.wiki.fextralife.com/Elden+Stars",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Eternal Darkness",
             spellType: "Debuff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Eternal+Darkness",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Flame Fortification",
             spellType: "Fire, Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Flame+Fortification",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Fortissax's Lightning Spear",
@@ -82,318 +127,371 @@
             spellSlots: 1,
             spellLink:
               "https://eldenring.wiki.fextralife.com/Fortissax's+Lightning+Spear",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Golden Vow",
             spellType: "Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Golden+Vow",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Placidusax's Ruin",
             spellType: "Magic",
             spellSlots: 3,
             spellLink: "https://eldenring.wiki.fextralife.com/Placidusax's+Ruin",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Protection of the Erdtree",
             spellType: "Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Protection+of+the+Erdtree",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Ranni's Dark Moon",
             spellType: "Debuff",
             spellSlots: 2,
             spellLink: "https://eldenring.wiki.fextralife.com/Ranni's+Dark+Moon",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Rennala's Full Moon",
             spellType: "Debuff",
             spellSlots: 2,
             spellLink: "https://eldenring.wiki.fextralife.com/Rennala's+Full+Moon",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Rykard's Rancor",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Rykard's+Rancor",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Scarlet Aeonia",
             spellType: "Scarlet Rot",
             spellSlots: 3,
             spellLink: "https://eldenring.wiki.fextralife.com/Scarlet+Aeonia",
+            spellSchool: "Incantation",
           },
           {
             spellName: "The Flame of Frenzy",
             spellType: "Fire, Madness",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/The+Flame+of+Frenzy",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Agheel's Flame",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Agheel's+Flame",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Ambush Shard",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Ambush+Shard",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Assassin's Approach",
             spellType: "Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Assassin's+Approach",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Divine Fortification",
             spellType: "Holy, Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Divine+Fortification",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Dragonfire",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Dragonfire",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Ekzykes's Decay",
             spellType: "Scarlet Rot",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Ekzykes's+Decay",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Electrify Armament",
             spellType: "Buff, Lightning",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Electrify+Armament",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Flame Grant me Strength",
             spellType: "Fire, Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Flame+Grant+me+Strength",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Flame Protect Me",
             spellType: "Fire, Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Flame+Protect+Me",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Frozen Armament",
             spellType: "Frostbite, Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Frozen+Armament",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Glintstone Arc",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Glintstone+Arc",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Gravity Well",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Gravity+Well",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Great Heal",
             spellType: "Heal",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Great+Heal",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Lansseax's Glaive",
             spellType: "Lightning",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Lansseax's+Glaive",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Law of Regression",
             spellType: "Heal",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Law+of+Regression",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Lightning Spear",
             spellType: "Lightning",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Lightning+Spear",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Litany of Proper Death",
             spellType: "Holy",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Litany+of+Proper+Death",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Lord's Aid",
             spellType: "Heal, Bleed, Sleep, Poison",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Lord's+Aid",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Loretta's Greatbow",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Loretta's+Greatbow",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Magic Glintblade",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Magic+Glintblade",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Order's Blade",
             spellType: "Buff, Holy",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Order's+Blade",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Terra Magicus",
             spellType: "Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Terra+Magicus",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Theodorix's Magma",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Theodorix's+Magma",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Unseen Blade",
             spellType: "Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Unseen+Blade",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Urgent Heal",
             spellType: "Heal",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Urgent+Heal",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Vyke's Dragonbolt",
             spellType: "Buff, Lightning",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Vyke's+Dragonbolt",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Whirl O Flame!",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Whirl+O+Flame!",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Wrath of Gold",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Wrath+of+Gold",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Barrier of Gold",
             spellType: "Magic, Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Barrier+of+Gold",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Bestial Constitution",
             spellType: "Heal, Bleed",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Bestial+Constitution",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Black Flame",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Black+Flame",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Black Flame Blade",
             spellType: "Fire, Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Black+Flame+Blade",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Black Flame Ritual",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Black+Flame+Ritual",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Bloodflame Blade",
             spellType: "Fire, Buff, Bleed",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Bloodflame+Blade",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Borealis's Mist",
             spellType: "Frostbite",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Borealis's+Mist",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Carian Phalanx",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Carian+Phalanx",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Carian Slicer",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Carian+Slicer",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Comet",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Comet",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Dragonice",
             spellType: "Frostbite",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Dragonice",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Flame Cleanse Me",
             spellType: "Fire, Heal, Poison",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Flame+Cleanse+Me",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Founding Rain of Stars",
             spellType: "Magic",
             spellSlots: 2,
             spellLink: "https://eldenring.wiki.fextralife.com/Founding+Rain+of+Stars",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Glintblade Phalanx",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Glintblade+Phalanx",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Glintstone Icecrag",
             spellType: "Frostbite",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Glintstone+Icecrag",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Glintstone Pebble",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Glintstone+Pebble",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Golden Lightning Fortification",
@@ -401,48 +499,56 @@
             spellSlots: 1,
             spellLink:
               "https://eldenring.wiki.fextralife.com/Golden+Lightning+Fortification",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Great Glintstone Shard",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Great+Glintstone+Shard",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Gurranq's Beast Claw",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Gurranq's+Beast+Claw",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Howl of Shabriri",
             spellType: "Debuff, Madness",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Howl+of+Shabriri",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Immutable Shield",
             spellType: "Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Immutable+Shield",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Law of Causality",
             spellType: "Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Law+of+Causality",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Lightning Fortification",
             spellType: "Lightning, Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Lightning+Fortification",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Lightning Strike",
             spellType: "Lightning",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Lightning+Strike",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Lord's Divine Fortification",
@@ -450,306 +556,357 @@
             spellSlots: 1,
             spellLink:
               "https://eldenring.wiki.fextralife.com/Lord's+Divine+Fortification",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Lord's Heal",
             spellType: "Heal",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Lord's+Heal",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Magic Fortification",
             spellType: "Magic, Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Magic+Fortification",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Meteorite of Astel",
             spellType: "Magic",
             spellSlots: 2,
             spellLink: "https://eldenring.wiki.fextralife.com/Meteorite+of+Astel",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Rotten Breath",
             spellType: "Scarlet Rot",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Rotten+Breath",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Scholar's Armament",
             spellType: "Magic, Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Scholar's+Armament",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Smarag's Glintstone Breath",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Smarag's+Glintstone+Breath",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Star Shower",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Star+Shower",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Stone of Gurranq",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Stone+of+Gurranq",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Surge O Flame!",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Surge+O+Flame!",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Swift Glintstone Shard",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Swift+Glintstone+Shard",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Blessing of the Erdtree",
             spellType: "Heal",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Blessing+of+the+Erdtree",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Crystal Release",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Crystal+Release",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Crystal Torrent",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Crystal+Torrent",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Cure Poison",
             spellType: "Heal, Poison",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Cure+Poison",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Erdtree Heal",
             spellType: "Heal",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Erdtree+Heal",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Explosive Ghostflame",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Explosive+Ghostflame",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Flame of the Fell God",
             spellType: "Fire",
             spellSlots: 2,
             spellLink: "https://eldenring.wiki.fextralife.com/Flame+of+the+Fell+God",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Glintstone Cometshard",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Glintstone+Cometshard",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Glintstone Stars",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Glintstone+Stars",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Greyoll's Roar",
             spellType: "Debuff",
             spellSlots: 2,
             spellLink: "https://eldenring.wiki.fextralife.com/Greyoll's+Roar",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Heal",
             spellType: "Heal",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Heal",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Loretta's Mastery",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Loretta's+Mastery",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Lucidity",
             spellType: "Heal, Sleep, Madness",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Lucidity",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Magma Breath",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Magma+Breath",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Scholar's Shield",
             spellType: "Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Scholar's+Shield",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Stars of Ruin",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Stars+of+Ruin",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Unseen Form",
             spellType: "Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Unseen+Form",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Ancient Death Rancor",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Ancient+Death+Rancor",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Blessing's Boon",
             spellType: "Heal",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Blessing's+Boon",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Bloodflame Talons",
             spellType: "Fire, Bleed",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Bloodflame+Talons",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Collapsing Stars",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Collapsing+Stars",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Crystal Barrage",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Crystal+Barrage",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Darkness",
             spellType: "Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Darkness",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Discus of Light",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Discus+of+Light",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Dragonbolt Blessing",
             spellType: "Lightning, Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Dragonbolt+Blessing",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Dragonclaw",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Dragonclaw",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Fire's Deadly Sin",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Fire's+Deadly+Sin",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Freezing Mist",
             spellType: "Frostbite",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Freezing+Mist",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Frozen Lightning Spear",
             spellType: "Frostbite, Lightning",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Frozen+Lightning+Spear",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Magic Downpour",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Magic+Downpour",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Night Comet",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Night+Comet",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Night Maiden's Mist",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Night+Maiden's+Mist",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Pest Threads",
             spellType: "Scarlet Rot",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Pest+Threads",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Poison Armament",
             spellType: "Poison, Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Poison+Armament",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Shadow Bait",
             spellType: "Debuff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Shadow+Bait",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Shattering Crystal",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Shattering+Crystal",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Thops's Barrier",
             spellType: "Debuff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Thops's+Barrier",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Triple Rings of Light",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Triple+Rings+of+Light",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Zamor Ice Storm",
             spellType: "Frostbite",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Zamor+Ice+Storm",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Adula's Moonblade",
             spellType: "Frostbite",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Adula's+Moonblade",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Ancient Dragons' Lightning Spear",
@@ -757,6 +914,7 @@
             spellSlots: 1,
             spellLink:
               "https://eldenring.wiki.fextralife.com/Ancient+Dragons'+Lightning+Spear",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Ancient Dragons' Lightning Strike",
@@ -764,6 +922,7 @@
             spellSlots: 1,
             spellLink:
               "https://eldenring.wiki.fextralife.com/Ancient+Dragons'+Lightning+Strike",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Aspect of the Crucible Breath",
@@ -771,6 +930,7 @@
             spellSlots: 1,
             spellLink:
               "https://eldenring.wiki.fextralife.com/Aspect+of+the+Crucible+Breath",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Aspect of the Crucible Tail",
@@ -778,6 +938,7 @@
             spellSlots: 1,
             spellLink:
               "https://eldenring.wiki.fextralife.com/Aspect+of+the+Crucible+Tail",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Aspects of the Crucible Horns",
@@ -785,287 +946,340 @@
             spellSlots: 1,
             spellLink:
               "https://eldenring.wiki.fextralife.com/Aspects+of+the+Crucible+Horns",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Black Flame's Protection",
             spellType: "Fire, Buff",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Black+Flame's+Protection",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Cannon of Haima",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Cannon+of+Haima",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Carian Piercer",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Carian+Piercer",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Flame Fall Upon Them",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Flame+Fall+Upon+Them",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Gavel of Haima",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Gavel+of+Haima",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Gelmir's Fury",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Gelmir's+Fury",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Giantsflame Take Thee",
             spellType: "Fire",
             spellSlots: 2,
             spellLink: "https://eldenring.wiki.fextralife.com/Giantsflame+Take+Thee",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Glintstone Breath",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Glintstone+Breath",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Great Oracular Bubble",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Great+Oracular+Bubble",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Greatblade Phalanx",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Greatblade+Phalanx",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Meteorite",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Meteorite",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Noble Presence",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Noble+Presence",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Order Healing",
             spellType: "Heal, Blight",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Order+Healing",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Radagon's Rings of Light",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Radagon's+Rings+of+Light",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Scouring Black Flame",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Scouring+Black+Flame",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Shard Spiral",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Shard+Spiral",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Tibia's Summons",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Tibia's+Summons",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Unendurable Frenzy",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Unendurable+Frenzy",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Beast Claw",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Beast+Claw",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Bestial Sling",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Bestial+Sling",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Bestial Vitality",
             spellType: "Heal",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Bestial+Vitality",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Briars of Punishment",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Briars+of+Punishment",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Briars of Sin",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Briars+of+Sin",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Carian Greatsword",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Carian+Greatsword",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Catch Flame",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Catch+Flame",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Crystal Burst",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Crystal+Burst",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Dragonmaw",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Dragonmaw",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Fia's Mist",
             spellType: "Frostbite, Blight",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Fia's+Mist",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Flame Sling",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Flame+Sling",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Frenzied Burst",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Frenzied+Burst",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Honed Bolt",
             spellType: "Lightning",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Honed+Bolt",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Inescapable Frenzy",
             spellType: "Debuff, Madness",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Inescapable+Frenzy",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Magma Shot",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Magma+Shot",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Night Shard",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Night+Shard",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "O Flame!",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/O+Flame!",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Oracle Bubbles",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Oracle+Bubbles",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Poison Mist",
             spellType: "Poison",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Poison+Mist",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Rancorcall",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Rancorcall",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Rejection",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Rejection",
+            spellSchool: "Incantation",
           },
           {
             spellName: "Rock Blaster",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Rock+Blaster",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Rock Sling",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Rock+Sling",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Roiling Magma",
             spellType: "Fire",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Roiling+Magma",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Shatter Earth",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Shatter+Earth",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Starlight",
             spellType: "Magic",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Starlight",
+            spellSchool: "Sorcery",
           },
           {
             spellName: "Swarm of Flies",
             spellType: "Bleed",
             spellSlots: 1,
             spellLink: "https://eldenring.wiki.fextralife.com/Swarm+of+Flies",
+            spellSchool: "Incantation",
           },
         ];
 
         const spellSlots = parseInt(document.getElementById("spellSlots").value);
+        const sorceriesEnabled = document.getElementById("sorceryCheckbox").checked;
+        const incantationsEnabled =
+          document.getElementById("incantationCheckbox").checked;
+
         let currSpellSlots = 0;
         let spellArr = [];
+
         while (currSpellSlots < spellSlots) {
           const randomSpell = arr[Math.floor(Math.random() * arr.length)];
           if (
             spellArr.includes(randomSpell) ||
-            currSpellSlots + randomSpell.spellSlots > spellSlots
+            currSpellSlots + randomSpell.spellSlots > spellSlots ||
+            (randomSpell.spellSchool === "Sorcery" && !sorceriesEnabled) ||
+            (randomSpell.spellSchool === "Incantation" && !incantationsEnabled)
           ) {
             continue;
           } else {
@@ -1075,7 +1289,6 @@
         }
 
         const table = document.getElementById("spellTable");
-        console.log(table.rows);
         while (table.rows.length > 1) {
           table.deleteRow(1);
         }
